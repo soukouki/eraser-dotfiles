@@ -5,6 +5,8 @@ local M = {}
 
 wezterm.on("update-right-status", require('updateRightStatus'));
 
+M.enable_tab_bar = false
+
 M.use_fancy_tab_bar = false
 
 wezterm.on("format-tab-title", require('formatTabTitle'))
@@ -24,9 +26,9 @@ M.colors = {
   }
 }
 
-M.font = wezterm.font("JetBrainsMono NF")
+M.font = wezterm.font("JetBrainsMono NerdFont")
 
-M.font_size = 13.0
+M.font_size = 9.0
 
 M.color_scheme = "lovelace"
 

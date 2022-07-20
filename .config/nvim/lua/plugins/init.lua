@@ -23,12 +23,13 @@ jetpack.setup({
 
   -- git
   { 'tpope/vim-fugitive' },
-  { 'airblade/vim-gitgutter' },
+  -- { 'airblade/vim-gitgutter' },
   { 'pwntester/octo.nvim' },
+  { 'lewis6991/gitsigns.nvim' },
 
   -- lsp
   { 'dense-analysis/ale' },
-  { 'maximbaz/lightline-ale' },
+  -- { 'maximbaz/lightline-ale' }, -- this require lightline
   { "neoclide/coc.nvim", branch = 'release' },
   { 'nvim-treesitter/nvim-treesitter'},
     { 'nvim-treesitter/nvim-treesitter-context' },
@@ -43,13 +44,17 @@ jetpack.setup({
   { 'RRethy/vim-illuminate' },
   { 't9md/vim-quickhl' },
   { 'mvllow/modes.nvim' },
-  { 'Yggdroot/indentLine' },
+  -- { 'Yggdroot/indentLine' },
+  -- { "lukas-reineke/indent-blankline.nvim" },
+  { 'rrethy/vim-hexokinase', run = 'make hexokinase' },
 
   -- layout
   { 'sidebar-nvim/sidebar.nvim' },
   { 'petertriho/nvim-scrollbar' },
-  { 'itchyny/lightline.vim' },
+  { 'glepnir/galaxyline.nvim' },
   { 'sunjon/stylish.nvim' },
+  { 'akinsho/bufferline.nvim' },
+  { 'romgrk/barbar.nvim' },
 
   -- misc
   { 'phaazon/hop.nvim' },
@@ -62,6 +67,9 @@ jetpack.setup({
   { 'tyru/open-browser-github.vim' },
   { 'renerocksai/telekasten.nvim' },
   { 'renerocksai/calendar-vim' },
+  { 'anuvyklack/hydra.nvim' },
+    { 'anuvyklack/keymap-layer.nvim' },
+  -- { 'jubnzv/virtual-types.nvim' },
 
   -- library and environment
   { 'nvim-lua/plenary.nvim' },
@@ -89,6 +97,7 @@ local function installAndLoadSetting()
 
   -- git
   util.loadPluginConfigFile('octo.nvim', 'plugins.git.octo')
+  -- util.loadPluginConfigFile('vim-gitgutter', 'plugins.git.vim-gitgutter')
 
   -- lsp
   util.loadPluginConfigFile('ale', 'plugins.lsp.ale')
@@ -98,18 +107,24 @@ local function installAndLoadSetting()
   -- colorscheme
   util.loadPluginConfigFile('tokyonight-vim', 'plugins.colorscheme.tokyonight-vim')
   util.loadPluginConfigFile('nightfox.nvim', 'plugins.colorscheme.nightfox')
+  vim.cmd("colorscheme duskfox")
 
   -- highlight
   util.loadPluginConfigFile('illuminate', 'plugins.highlight.vim-illuminate')
   util.loadPluginConfigFile('quickhl', 'plugins.highlight.vim-quickhl')
-  util.loadPluginConfigFile('modes.nvim', 'plugins.highlight.modes')
+  -- util.loadPluginConfigFile('modes.nvim', 'plugins.highlight.modes')
+  util.loadPluginConfigFile('indent-blankline.nvim', 'plugins.highlight.indent-blankline')
 
   -- layout
   util.loadPluginConfigFile('stylish.nvim', 'plugins.layout.stylish')
+  -- util.loadPluginConfigFile('lualine.nvim', 'plugins.layout.lualine')
+  util.loadPluginConfigFile('galaxyline.nvim', 'plugins.layout.galaxyline')
   if not isExistNotInstalledPlugin then
     util.loadPluginConfigFile('nvim-scrollbar', 'plugins.layout.nvim-scrollbar')
     util.loadPluginConfigFile('sidebar.nvim', 'plugins.layout.sidebar')
   end
+  util.loadPluginConfigFile('bufferline.nvim', 'plugins.layout.bufferline')
+  util.loadPluginConfigFile('barbar.nvim', 'plugins.layout.barbar')
 
   -- misc
   util.loadPluginConfigFile('hop.nvim', 'plugins.misc.hop')
@@ -120,6 +135,8 @@ local function installAndLoadSetting()
   if jetpack.tap('nvim-notify') == 1 then
     vim.notify = require("notify")
   end
+  util.loadPluginConfigFile('hydra.nvim', 'plugins.misc.hydra')
+  util.loadPluginConfigFile('gitsigns.nvim', 'plugins.misc.gitsigns')
 end
 
 installAndLoadSetting()

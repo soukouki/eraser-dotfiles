@@ -16,18 +16,12 @@ local keymaps = {
   { 'i', 'fd', '<Esc>' },
   { 'i', 'jj', '<Esc>' },
   { 'n', '<Esc><Esc>', ':noh<CR><Esc>' },
-  { 'n', 'j', 'gj' },
-  { 'n', 'k', 'gk' },
-  { 'v', 'j', 'gj' },
-  { 'v', 'k', 'gk' },
   { 'n', '+', '<C-a>' },
   { 'n', '-', '<C-x>' },
   { 'n', '<C-a>', '<Nop>' },
   { 'n', '<C-x>', '<Nop>' },
   { 'n', 'Y', 'y$' },
   { 'n', 'x', '"_x' },
-  { 'n', leader .. 'j', '7j' },
-  { 'n', leader .. 'k', '7k' },
   { 'n', leader .. 'ya', '"ayyggVGy/<C-r>a<CR>' },
 
   -- window
@@ -42,7 +36,6 @@ local keymaps = {
     { 'n', window .. 'k', '<C-w>k' },
     { 'n', window .. 'l', '<C-w>l' },
 
-    --resize
   { 'n', leader .. 'r', resize, { remap = true } },
     { 'n', resize, 	  leader .. 'r' },
     { 'n', resize .. 'h', '<C-w>H' },

@@ -26,7 +26,7 @@ M.colors = {
   }
 }
 
-M.font = wezterm.font("JetBrainsMono NerdFont")
+M.font = wezterm.font("JetBrainsMono Nerd Font")
 
 M.font_size = 9.0
 

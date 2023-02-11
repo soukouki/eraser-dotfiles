@@ -50,8 +50,6 @@ M.window_background_opacity = 0.95
 
 M.automatically_reload_config = false
 
-M.window_background_image = "/Users/katotake/Pictures/wallpapers/twitter_ㄨㄧㄚ(@aaaaaaa068345)_20211101-023710_1455000935634137088_photo.jpg"
-
 M.window_background_image_hsb = { brightness = 0.02, hue = 1.0, saturation = 0.5 }
 
 
